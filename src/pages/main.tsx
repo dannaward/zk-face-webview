@@ -25,7 +25,7 @@ const Main = () => {
   return (
     <Container>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       <TokenContainer>
         <TokenBalance>{balance}</TokenBalance>
         <TokenUnit>{"MATIC"}</TokenUnit>
@@ -35,7 +35,7 @@ const Main = () => {
         <CtaSmallBtn key="Deposit" title="Deposit"></CtaSmallBtn>
         <CtaSmallBtn key="Send" title="Send"></CtaSmallBtn>
       </BalanceContainer>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 };
