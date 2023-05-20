@@ -48,7 +48,7 @@ const Confirm = () => {
         </p>
         <span>{0.00087}</span>
       </GasFeeContainer>
-      <ConfirmBtn>{"Confirm"}</ConfirmBtn>
+      <ConfirmBtn onClick={() => { setIsClicked(!isClicked) }}>{"Confirm"}</ConfirmBtn>
       {/* <Footer /> */}
       { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickConfirm");'}</Script> }
     </Container>
