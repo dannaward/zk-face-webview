@@ -18,15 +18,12 @@ export default function Home() {
         <Title />
         {/* TODO: key 값 enum 으로 바꾸기 */}
         <SettingBtn>{SettingWalletTitle}</SettingBtn>
-        <br />
         <BtnDescription>{WalletTitle}</BtnDescription>
-        <br />
         <BtnContainer>
           <CtaLargeBtn key={"create"} title={"Create a new wallet"} />
           <CtaLargeBtn key={"connect"} title={"Import your wallet"} />
         </BtnContainer>
       </Container>
-      <Script id="my-script">{`function test() { alert("오예"); }`}</Script>
     </>
   );
 }
@@ -35,13 +32,14 @@ const BtnContainer = styled.div`
   flex-direction: row;
   text-algin: center;
 `;
-const SettingBtn = styled.text`
+const SettingBtn = styled.p`
   color: ${colors.white};
   font-size: 30px;
+  margin: 0;
 `;
 
-const BtnDescription = styled.text`
-  margin-top: 30px;
+const BtnDescription = styled.p`
+  margin: 10px;
   color: ${colors.white};
   font-size: 12px;
 `;

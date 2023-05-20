@@ -93,18 +93,18 @@ const Swap = () => {
       <GasFeeContainer>
         <GasFeeInfo>{"Gas Fee  "}</GasFeeInfo>
         <GasFeeInfo>{gasFee}</GasFeeInfo>
-        <GasFeeUnit>{"  Gwei"}</GasFeeUnit>
+        <GasFeeUnit>{"  Matic"}</GasFeeUnit>
         {/* <SetGasLimit type="number"></SetGasLimit> */}
       </GasFeeContainer>
       <SubmitBtn
         onClick={() => {
-          router.push("/confirm", {
-            pathname: "/confirm",
-            query: {
-              matic,
-              eth,
-            },
-          });
+          // router.push("/confirm", {
+          //   pathname: "/confirm",
+          //   query: {
+          //     matic,
+          //     eth,
+          //   },
+          // });
           setIsClicked(!isClicked);
         }}
 
@@ -123,11 +123,12 @@ const SwapInputContainer = styled.form`
   height: 61px;
   display: flex;
   margin: 0 auto;
-  margin-top: 5px;
-  text-align: center;
+  margin-top: 20px;
   margin-bottom: 20px;
+  text-align: center;
   border-radius: 15px;
   background-color: ${colors.white};
+  align-items: center;
 `;
 
 const SwapTokenTitle = styled.text`
@@ -141,11 +142,15 @@ const SendAmountInput = styled.input`
   padding: 20px;
   justify-content: center;
   align-items: center;
+  
+  width: 150px;
+  
+  background-color: transparent;
 `;
 
 const GasFeeInfo = styled.text`
   color: ${colors.black};
-  font-size: 30px;
+  font-size: 25px;
 `;
 const SetGasLimit = styled.button`
   width: 291px;
@@ -170,6 +175,9 @@ const GasFeeContainer = styled.div`
   margin: 0 auto;
   border-radius: 15px;
   background-color: ${colors.white};
+  
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 const GasFeeUnit = styled.text``;

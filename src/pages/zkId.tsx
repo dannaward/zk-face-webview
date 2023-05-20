@@ -16,7 +16,7 @@ const Main = () => {
       <ConnectPolygonBtn
         onClick={() => {
           // TODO: 얼굴인식 화면으로
-          router.push(`/main`);
+          router.push(`/zk-apps`);
         }}
       >
         {CONNECT_BTN_TITLE}
@@ -30,6 +30,8 @@ const ConnectDescription = styled.div`
   white-space: pre-line;
   color: ${colors.white};
   font-size: 12px;
+  
+  padding-top: 30%;
 `;
 
 const ConnectPolygonBtn = styled.button`
@@ -42,5 +44,5 @@ const ConnectPolygonBtn = styled.button`
   color: ${colors.white};
   border: none;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 25px;
 `;
