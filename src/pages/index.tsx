@@ -4,10 +4,13 @@ import { GlobalStyle } from "@/styles/global.style";
 import { pageKey } from "@/types/pageKey";
 import Link from "next/link";
 import styled from "styled-components";
+import Script from "next/script";
+import {useEffect} from "react";
 
 export default function Home() {
   const SettingWalletTitle = "Setting Wallet";
   const WalletTitle = "Import your wallet or create a new wallet";
+
   return (
     <>
       <GlobalStyle />
@@ -23,6 +26,7 @@ export default function Home() {
           <CtaLargeBtn key={"connect"} title={"Import your wallet"} />
         </BtnContainer>
       </Container>
+      <Script id="my-script">{`function test() { alert("오예"); }`}</Script>
     </>
   );
 }

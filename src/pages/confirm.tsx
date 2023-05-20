@@ -4,6 +4,7 @@ import { GlobalStyle } from "@/styles/global.style";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
+import Script from "next/script";
 import { TfiArrowsHorizontal } from "react-icons/tfi";
 import { BsFire } from "react-icons/bs";
 
@@ -12,6 +13,7 @@ const Confirm = () => {
   console.log("route", route.query.matic);
   console.log("route", route.query.eth);
   const [balance, setBalance] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
 
   return (
     <Container>
@@ -48,6 +50,7 @@ const Confirm = () => {
       </GasFeeContainer>
       <ConfirmBtn>{"Confirm"}</ConfirmBtn>
       {/* <Footer /> */}
+      { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickConfirm");'}</Script> }
     </Container>
   );
 };
