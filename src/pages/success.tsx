@@ -21,7 +21,6 @@ const Success = () => {
       <GlobalStyle />
       {/* <Header /> */}
       <ConfirmTitle>{"Success!"}</ConfirmTitle>
-      <br />
       <ConfirmDescription>
         {"Your transaction has been successed"}
       </ConfirmDescription>
@@ -48,15 +47,19 @@ const Success = () => {
 
 export default Success;
 
-const ConfirmTitle = styled.text`
+const ConfirmTitle = styled.h1`
   justify-content: flex-start;
   font-size: 70px;
   color: ${colors.white};
+  
+  margin-bottom: 0;
 `;
 
-const ConfirmDescription = styled.div`
+const ConfirmDescription = styled.h2`
   font-size: 18px;
+  font-weight: normal;
   color: ${colors.white};
+  
   margin-bottom: 20px;
 `;
 
@@ -74,6 +77,9 @@ const AmountContainer = styled.div`
   height: auto;
   border-radius: 15px;
   background-color: ${colors.white};
+  
+  padding: 10px;
+  margin-bottom: 20px;
 `;
 
 const TotalFeeContainer = styled.div`
@@ -86,11 +92,12 @@ const TotalFeeContainer = styled.div`
 const GasFeeContainer = styled.div``;
 const ConfirmBtn = styled.button`
   width: 332px;
-  height: 36px;
-  margin-top: 20px;
   background-color: ${colors.deepBlue};
   color: ${colors.white};
   font-size: 30px;
   border: none;
-  border-radius: 15px;
+  border-radius: 100px;
+  
+  margin-top: 40px;
+  padding: 10px;
 `;
