@@ -1,5 +1,6 @@
 export const colors = {
-  deepBlue: "#150D73",
+  deepBlue: "#4134D7",
   black: "#000",
   white: "#FFF",
+  red: "#FF0000",
 } as const;

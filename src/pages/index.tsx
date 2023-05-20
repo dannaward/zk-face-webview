@@ -22,8 +22,8 @@ export default function Home() {
         <BtnDescription>{WalletTitle}</BtnDescription>
         <br />
         <BtnContainer>
-          <CtaLargeBtn key={"connect"} title={"Import your wallet"} />
           <CtaLargeBtn key={"create"} title={"Create a new wallet"} />
+          <CtaLargeBtn key={"connect"} title={"Import your wallet"} />
         </BtnContainer>
       </Container>
       <Script id="my-script">{`function test() { alert("오예"); }`}</Script>

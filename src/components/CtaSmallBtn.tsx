@@ -20,7 +20,7 @@ const CtaSmallBtn = (props: SmallProps) => {
       <Button
         onClick={() => {
           // TODO: 얼굴인식 화면으로
-          // router.push(`/send`);
+          // router.push(`/swap`);
 
           setIsClicked(!isClicked);
         }}
