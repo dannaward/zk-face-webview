@@ -6,15 +6,13 @@ import ZkApp from "@/components/ZkApp";
 import {GlobalStyle} from "@/styles/global.style";
 
 function ZkApps() {
+  const appNames = ["ZK Blind", "ZK Tender", "ZK Inven", "ZK\nAmong US"]
   return (
     <Container>
       <GlobalStyle />
       <RegisterDescription>Register your ID on our wallet with top-tier<br/>privacy protection solution!</RegisterDescription>
       <AppsWrap>
-        <ZkApp name={"ZKSwap"} />
-        <ZkApp name={"ZKSwap"} />
-        <ZkApp name={"ZKSwap"} />
-        <ZkApp name={"ZKSwap"} />
+        { appNames.map((name) => <ZkApp key={name} name={name} />) }
       </AppsWrap>
     </Container>
   );
@@ -33,8 +31,8 @@ const RegisterDescription = styled.p`
 
 const AppsWrap = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
   
   margin: 100px 24px 0 24px;
 `;
