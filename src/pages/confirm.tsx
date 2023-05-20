@@ -23,22 +23,29 @@ const Confirm = () => {
         {"Does your transaction look correct?"}
       </ConfirmDescription>
 
-      <AmountContainer>
+      {/* <AmountContainer>
         <FromContainer>From</FromContainer>
         <FromValueContainer>{200}</FromValueContainer>
         <ToContainer>To</ToContainer>
-      </AmountContainer>
-      <span>
-        <TfiArrowsHorizontal size={60} />
-      </span>
+      </AmountContainer> */}
+      <TotalFeeContainer>
+        {"200MATIC"}
+        <TfiArrowsHorizontal
+          size={30}
+          style={{ color: colors.black, marginLeft: 5 }}
+        />
+        {"10ETH"}
+      </TotalFeeContainer>
+
       {/* <ToContainer>{"ETH"}</ToContainer> */}
 
-      <TotalFeeContainer>
-        {"Total Gas Fee"}
-        <p>
+      <GasFeeContainer>
+        <p style={{ fontSize: 30 }}>
           <BsFire size={30} />
+          {"Total Gas Fee"}
         </p>
-      </TotalFeeContainer>
+        <span>{0.00087}</span>
+      </GasFeeContainer>
       <ConfirmBtn>{"Confirm"}</ConfirmBtn>
       {/* <Footer /> */}
     </Container>
@@ -59,9 +66,7 @@ const ConfirmDescription = styled.div`
   margin-bottom: 20px;
 `;
 
-const FromContainer = styled.span`
-  width: 50px;
-`;
+const FromContainer = styled.p``;
 const FromValueContainer = styled.span`
   width: 50px;
 `;
@@ -70,9 +75,6 @@ const ToContainer = styled.span`
 `;
 
 const AmountContainer = styled.div`
-  // margin: 0 auto;
-  // width: 332px;
-  // height: 96px;
   flex-direction: column;
   border-radius: 15px;
   background-color: ${colors.white};
@@ -80,13 +82,22 @@ const AmountContainer = styled.div`
 
 const TotalFeeContainer = styled.div`
   margin: 0 auto;
-  margin-top: 20px;
   width: 332px;
   height: 96px;
   border-radius: 15px;
   background-color: ${colors.white};
+  font-size: 30px;
+  color: ${colors.red};
 `;
-const GasFeeContainer = styled.div``;
+const GasFeeContainer = styled.div`
+  margin: 0 auto;
+  width: 332px;
+  height: 96px;
+  border-radius: 15px;
+  background-color: ${colors.white};
+  font-size: 30px;
+  color: ${colors.black};
+`;
 const ConfirmBtn = styled.button`
   width: 332px;
   height: 36px;
