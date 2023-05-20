@@ -21,15 +21,16 @@ const TitleContainer = styled.div`
   padding: 20px;
 `;
 
-const AppTitle = styled.text`
+const AppTitle = styled.h1`
   color: ${colors.white};
   font-size: 50px;
+  margin-bottom: 0;
   //   font-family:
 `;
 
-const AppName = styled.text`
-  margin-top: 30px;
+const AppName = styled.h2`
+  margin-top: 0;
   color: ${colors.white};
-  font-size: 30px;
-  //   font-family:
+  font-size: 25px;
+  font-weight: normal;
 `;
