@@ -4,7 +4,7 @@ import { GlobalStyle } from "@/styles/global.style";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
-import { AiOutlineFileDone } from "react-icons/Ai";
+import { AiOutlineFileDone } from "react-icons/ai";
 import { MdVerifiedUser } from "react-icons/Md";
 
 const Success = () => {
