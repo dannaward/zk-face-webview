@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <Container>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       <ConnectDescription>{CONNECT_DES}</ConnectDescription>
       <ConnectPolygonBtn
         onClick={() => {

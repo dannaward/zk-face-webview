@@ -9,20 +9,29 @@ const Confirm = () => {
   return (
     <Container>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       <ConfirmTitle>{"Confirm"}</ConfirmTitle>
+      <br />
+      <ConfirmDescription>
+        {"Does your transaction look correct?"}
+      </ConfirmDescription>
       <ToAddressContainer>{"TO"}</ToAddressContainer>
       <TotalFeeContainer>{"Total Gas Fee"}</TotalFeeContainer>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 };
 export default Confirm;
 
-const ConfirmTitle = styled.div`
+const ConfirmTitle = styled.text`
   justify-content: flex-start;
-  color: ${colors.white};
   font-size: 70px;
+  color: ${colors.white};
+`;
+
+const ConfirmDescription = styled.text`
+  font-size: 18px;
+  color: ${colors.white};
 `;
 
 const ToAddressContainer = styled.div`

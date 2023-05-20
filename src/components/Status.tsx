@@ -16,13 +16,13 @@ const Status = (props: StatusProps) => {
   return (
     <Container>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       <TokenBalance>{"$" + balance}</TokenBalance>
       <BalanceContainer>
         <CtaSmallBtn key="Deposit" title="Deposit"></CtaSmallBtn>
         <CtaSmallBtn key="Send" title="Send"></CtaSmallBtn>
       </BalanceContainer>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 };
