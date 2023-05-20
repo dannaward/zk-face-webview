@@ -124,8 +124,8 @@ const SwapInputContainer = styled.form`
   display: flex;
   margin: 0 auto;
   margin-top: 20px;
-  text-align: center;
   margin-bottom: 20px;
+  text-align: center;
   border-radius: 15px;
   background-color: ${colors.white};
   align-items: center;
@@ -143,12 +143,14 @@ const SendAmountInput = styled.input`
   justify-content: center;
   align-items: center;
   
+  width: 150px;
+  
   background-color: transparent;
 `;
 
 const GasFeeInfo = styled.text`
   color: ${colors.black};
-  font-size: 30px;
+  font-size: 25px;
 `;
 const SetGasLimit = styled.button`
   width: 291px;

@@ -61,10 +61,9 @@ export default Main;
 
 const BalanceContainer = styled.div`
   color: ${colors.white};
-  font-size: ;
 `;
 const TokenContainer = styled.div`
-  // margin-top: 20%;
+   margin-top: 20%;
 `;
 const TokenBalance = styled.text`
   color: ${colors.white};
@@ -78,6 +77,7 @@ const TokenListBalance = styled.text`
 const TokenListContainer = styled.div`
   width: 327px;
   display: flex;
+  align-items: center;
   margin: 0 auto;
   border-radius: 10px;
   margin-top: 27px;
