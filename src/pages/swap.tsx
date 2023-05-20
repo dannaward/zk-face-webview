@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 
 const Swap = () => {
   const [value, setValue] = useState(0);
-  const [gasFee, setGasFee] = useState("");
+  const [gasFee, setGasFee] = useState(0.00087);
   const [matic, setMatic] = useState(200);
   const [eth, setEth] = useState(10);
   const router = useRouter();
@@ -24,12 +24,12 @@ const Swap = () => {
   // const signer = new ethers.Wallet("WALLET_PRIVATE_KEY", provider);
   // const SwapContract = new ethers.Contract("", swapAbi, signer);
 
-  useEffect(() => {
-    getGasFee().then((res) => {
-      console.log("res", res.fast);
-      setGasFee(res.fast);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getGasFee().then((res) => {
+  //     console.log("res", res.fast);
+  //     setGasFee(res.fast);
+  //   });
+  // }, []);
 
   // TODO: contract function call
   // const func = await SwapContract.func();
