@@ -4,48 +4,47 @@ import { GlobalStyle } from "@/styles/global.style";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
-import { TfiArrowsHorizontal } from "react-icons/tfi";
-import { BsFire } from "react-icons/bs";
+import { AiOutlineFileDone } from "react-icons/Ai";
+import { MdVerifiedUser } from "react-icons/Md";
 
-const Confirm = () => {
+const Success = () => {
   const route = useRouter();
   console.log("route", route.query.matic);
   console.log("route", route.query.eth);
-  const [balance, setBalance] = useState(0);
+  const [txHash, setTxHash] = useState("0xjjewidjhwij");
+  const [zkProof, setZkProof] = useState("00011111000000111");
 
   return (
     <Container>
       <GlobalStyle />
       {/* <Header /> */}
-      <ConfirmTitle>{"Confirm"}</ConfirmTitle>
+      <ConfirmTitle>{"Success!"}</ConfirmTitle>
       <br />
       <ConfirmDescription>
-        {"Does your transaction look correct?"}
+        {"Your transaction has been successed"}
       </ConfirmDescription>
 
       <AmountContainer>
-        <FromContainer>From</FromContainer>
-        <FromValueContainer>{200}</FromValueContainer>
-        <ToContainer>To</ToContainer>
-      </AmountContainer>
-      <span>
-        <TfiArrowsHorizontal size={60} />
-      </span>
-      {/* <ToContainer>{"ETH"}</ToContainer> */}
-
-      <TotalFeeContainer>
-        {"Total Gas Fee"}
         <p>
-          <BsFire size={30} />
+          <AiOutlineFileDone size={60} />
         </p>
-      </TotalFeeContainer>
+        <FromContainer>{"TxHash"}</FromContainer>
+        <FromContainer>{txHash}</FromContainer>
+      </AmountContainer>
+      <AmountContainer>
+        <p>
+          <MdVerifiedUser size={60} />
+        </p>
+        <FromContainer>{"ZkProof"}</FromContainer>
+        <FromContainer>{zkProof}</FromContainer>
+      </AmountContainer>
       <ConfirmBtn>{"Confirm"}</ConfirmBtn>
       {/* <Footer /> */}
     </Container>
   );
 };
 
-export default Confirm;
+export default Success;
 
 const ConfirmTitle = styled.text`
   justify-content: flex-start;
@@ -59,21 +58,15 @@ const ConfirmDescription = styled.div`
   margin-bottom: 20px;
 `;
 
-const FromContainer = styled.span`
-  width: 50px;
+const FromContainer = styled.text`
+  padding: 0px 15px 0px 15px;
 `;
-const FromValueContainer = styled.span`
-  width: 50px;
-`;
-const ToContainer = styled.span`
-  width: 50px;
-`;
+const ToContainer = styled.div``;
 
 const AmountContainer = styled.div`
-  // margin: 0 auto;
-  // width: 332px;
-  // height: 96px;
-  flex-direction: column;
+  margin: 0 auto;
+  width: 332px;
+  height: 96px;
   border-radius: 15px;
   background-color: ${colors.white};
 `;
