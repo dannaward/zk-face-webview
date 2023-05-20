@@ -17,7 +17,7 @@ const CtaLargeBtn = (props: Props) => {
     <Button
       onClick={() => {
         // TODO: 얼굴인식 화면으로
-        router.push(`/main`);
+        // router.push(`/main`);
       }}
     >
       <Title>{title}</Title>

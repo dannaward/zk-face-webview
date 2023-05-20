@@ -3,7 +3,7 @@ import { colors } from "@/constant/colors";
 import { GlobalStyle } from "@/styles/global.style";
 import { swapAbi } from "@/types/swap.abi";
 import { getGasFee } from "@/utils";
-import { ethers } from "ethers";
+import { ethers, id } from "ethers";
 import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
@@ -11,11 +11,13 @@ import EtherIcon from "../../public/svgs/Ether.svg";
 import MaticIcon from "../../public/svgs/Matic.svg";
 import UpArrow from "../../public/svgs/UpArrow.svg";
 import DownArrow from "../../public/svgs/DownArrow.svg";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
-const Send = () => {
+const Swap = () => {
   const [value, setValue] = useState(0);
   const [gasFee, setGasFee] = useState("");
+  const [matic, setMatic] = useState(200);
+  const [eth, setEth] = useState(10);
   const router = useRouter();
   // TODO: swap contract call
   // const provider = new ethers.JsonRpcApiProvider("", 1);
@@ -24,6 +26,7 @@ const Send = () => {
 
   useEffect(() => {
     getGasFee().then((res) => {
+      console.log("res", res.fast);
       setGasFee(res.fast);
     });
   }, []);
@@ -40,7 +43,13 @@ const Send = () => {
       {/* <Header /> */}
       {/* TODO: key 값으로 토큰변경 */}
       <SwapInputContainer>
-        <SendAmountInput />
+        <SendAmountInput
+          type="number"
+          value={200}
+          onChange={(e) => {
+            setMatic(Number(e.target.value));
+          }}
+        />
         <Image
           src={MaticIcon}
           alt={"MaticIcon"}
@@ -58,7 +67,12 @@ const Send = () => {
       <Image src={UpArrow} alt="UpArrow" />
       <Image src={DownArrow} alt="DownArrow" />
       <SwapInputContainer>
-        <SendAddressInput />
+        <SendAmountInput
+          id="eth"
+          value={10}
+          type="number"
+          onChange={(e) => setEth(Number(e.target.value))}
+        />
         <Image
           src={EtherIcon}
           alt={"EtherIcon"}
@@ -73,13 +87,21 @@ const Send = () => {
         <SwapTokenTitle>{"Ether"}</SwapTokenTitle>
       </SwapInputContainer>
 
-      {/* <GasFeeContainer>
-        <GasFeeInfo>{"Gas Fee"}</GasFeeInfo>
-        <SetGasLimit type="number"></SetGasLimit>
-      </GasFeeContainer> */}
+      <GasFeeContainer>
+        <GasFeeInfo>{"Gas Fee  "}</GasFeeInfo>
+        <GasFeeInfo>{gasFee}</GasFeeInfo>
+        <GasFeeUnit>{"  Gwei"}</GasFeeUnit>
+        {/* <SetGasLimit type="number"></SetGasLimit> */}
+      </GasFeeContainer>
       <SubmitBtn
         onClick={() => {
-          router.push("/status");
+          router.push("/confirm", {
+            pathname: "/confirm",
+            query: {
+              matic,
+              eth,
+            },
+          });
         }}
       >
         {"Next"}
@@ -88,11 +110,12 @@ const Send = () => {
     </Container>
   );
 };
-export default Send;
+export default Swap;
 
-const SwapInputContainer = styled.div`
+const SwapInputContainer = styled.form`
   width: 295px;
   height: 61px;
+  display: flex;
   margin: 0 auto;
   margin-top: 5px;
   text-align: center;
@@ -114,14 +137,7 @@ const SendAmountInput = styled.input`
   align-items: center;
 `;
 
-const SendAddressInput = styled.input`
-  font-size: 14px;
-  border: none;
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
-`;
-const GasFeeInfo = styled.div`
+const GasFeeInfo = styled.text`
   color: ${colors.black};
   font-size: 30px;
 `;
@@ -138,12 +154,16 @@ const SubmitBtn = styled.button`
   font-size: 30px;
   color: ${colors.white};
   background-color: ${colors.deepBlue};
+  border-radius: 15px;
   border: none;
 `;
 
-const GasFeeContainer = styled.form`
+const GasFeeContainer = styled.div`
   width: 291px;
-  height: 182px;
+  // height: 182px;
   margin: 0 auto;
+  border-radius: 15px;
   background-color: ${colors.white};
 `;
+
+const GasFeeUnit = styled.text``;
