@@ -11,8 +11,10 @@ const Success = () => {
   const route = useRouter();
   console.log("route", route.query.matic);
   console.log("route", route.query.eth);
-  const [txHash, setTxHash] = useState("0xjjewidjhwij");
-  const [zkProof, setZkProof] = useState("00011111000000111");
+  const [txHash, setTxHash] = useState("0x582f468e73e4f33cks3ml43882s6e851a4");
+  const [zkProof, setZkProof] = useState(
+    "011010101010000000000010001101010101010010101010001000001022000200101000101010"
+  );
 
   return (
     <Container>
@@ -26,14 +28,14 @@ const Success = () => {
 
       <AmountContainer>
         <p>
-          <AiOutlineFileDone size={60} />
+          <AiOutlineFileDone size={30} />
         </p>
-        <FromContainer>{"TxHash"}</FromContainer>
-        <FromContainer>{txHash}</FromContainer>
+        <ToContainer>{"TxHash"}</ToContainer>
+        <ToContainer>{txHash}</ToContainer>
       </AmountContainer>
       <AmountContainer>
         <p>
-          <MdVerifiedUser size={60} />
+          <MdVerifiedUser size={30} />
         </p>
         <FromContainer>{"ZkProof"}</FromContainer>
         <FromContainer>{zkProof}</FromContainer>
@@ -58,15 +60,18 @@ const ConfirmDescription = styled.div`
   margin-bottom: 20px;
 `;
 
-const FromContainer = styled.text`
-  padding: 0px 15px 0px 15px;
+const FromContainer = styled.div`
+  padding: 5px;
+  word-break: break-all;
 `;
-const ToContainer = styled.div``;
+const ToContainer = styled.div`
+  word-break: break-all;
+`;
 
 const AmountContainer = styled.div`
   margin: 0 auto;
   width: 332px;
-  height: 96px;
+  height: auto;
   border-radius: 15px;
   background-color: ${colors.white};
 `;
@@ -75,7 +80,6 @@ const TotalFeeContainer = styled.div`
   margin: 0 auto;
   margin-top: 20px;
   width: 332px;
-  height: 96px;
   border-radius: 15px;
   background-color: ${colors.white};
 `;
