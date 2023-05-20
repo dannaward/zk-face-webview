@@ -9,7 +9,6 @@ interface SmallProps {
 
 const CtaSmallBtn = (props: SmallProps) => {
   const { title, key } = props;
-  console.log("key", props.key);
   const router = useRouter();
   return (
     <Button
