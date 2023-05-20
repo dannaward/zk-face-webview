@@ -3,6 +3,7 @@ import { pageKey } from "@/types/pageKey";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
+import Script from "next/script";
 
 interface Props {
   //   key: pageKey;
@@ -13,15 +14,22 @@ interface Props {
 const CtaLargeBtn = (props: Props) => {
   const { title, key } = props;
   const router = useRouter();
+
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
-    <Button
-      onClick={() => {
-        // TODO: 얼굴인식 화면으로
-        // router.push(`/main`);
-      }}
-    >
-      <Title>{title}</Title>
-    </Button>
+    <>
+      <Button
+        onClick={() => {
+          // TODO: 얼굴인식 화면으로
+          // router.push(`/main`);
+          setIsClicked(!isClicked);
+        }}
+      >
+        <Title>{title}</Title>
+      </Button>
+      { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickImportYourWallet");'}</Script> }
+    </>
   );
 };
 

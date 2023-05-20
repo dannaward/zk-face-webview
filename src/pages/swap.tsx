@@ -11,6 +11,7 @@ import EtherIcon from "../../public/svgs/Ether.svg";
 import MaticIcon from "../../public/svgs/Matic.svg";
 import UpArrow from "../../public/svgs/UpArrow.svg";
 import DownArrow from "../../public/svgs/DownArrow.svg";
+import Script from "next/script";
 import { useRouter } from "next/router";
 
 const Swap = () => {
@@ -19,6 +20,8 @@ const Swap = () => {
   const [matic, setMatic] = useState(200);
   const [eth, setEth] = useState(10);
   const router = useRouter();
+
+  const [isClicked, setIsClicked] = useState(false);
   // TODO: swap contract call
   // const provider = new ethers.JsonRpcApiProvider("", 1);
   // const signer = new ethers.Wallet("WALLET_PRIVATE_KEY", provider);
@@ -102,11 +105,14 @@ const Swap = () => {
               eth,
             },
           });
+          setIsClicked(!isClicked);
         }}
+
       >
         {"Next"}
       </SubmitBtn>
       {/* <Footer /> */}
+      { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickNext");'}</Script> }
     </Container>
   );
 };
