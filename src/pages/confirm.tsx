@@ -3,9 +3,12 @@ import { colors } from "@/constant/colors";
 import { GlobalStyle } from "@/styles/global.style";
 import { useState } from "react";
 import styled from "styled-components";
+import Script from "next/script";
 
 const Confirm = () => {
   const [balance, setBalance] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <Container>
       <GlobalStyle />
@@ -18,6 +21,7 @@ const Confirm = () => {
       <ToAddressContainer>{"TO"}</ToAddressContainer>
       <TotalFeeContainer>{"Total Gas Fee"}</TotalFeeContainer>
       {/* <Footer /> */}
+      { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickConfirm");'}</Script> }
     </Container>
   );
 };

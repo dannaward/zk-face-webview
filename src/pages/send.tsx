@@ -12,11 +12,14 @@ import MaticIcon from "../../public/svgs/Matic.svg";
 import UpArrow from "../../public/svgs/UpArrow.svg";
 import DownArrow from "../../public/svgs/DownArrow.svg";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 
 const Send = () => {
   const [value, setValue] = useState(0);
   const [gasFee, setGasFee] = useState("");
   const router = useRouter();
+
+  const [isClicked, setIsClicked] = useState(false);
   // TODO: swap contract call
   // const provider = new ethers.JsonRpcApiProvider("", 1);
   // const signer = new ethers.Wallet("WALLET_PRIVATE_KEY", provider);
@@ -80,11 +83,14 @@ const Send = () => {
       <SubmitBtn
         onClick={() => {
           router.push("/status");
+          setIsClicked(!isClicked);
         }}
+
       >
         {"Next"}
       </SubmitBtn>
       {/* <Footer /> */}
+      { isClicked && <Script id="foo">{'window.webkit.messageHandlers.bridge.postMessage("onClickNext");'}</Script> }
     </Container>
   );
 };
