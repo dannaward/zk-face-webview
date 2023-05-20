@@ -12,13 +12,12 @@ interface Props {
 
 const CtaLargeBtn = (props: Props) => {
   const { title, key } = props;
-  console.log("key", key);
   const router = useRouter();
   return (
     <Button
       onClick={() => {
         // TODO: 얼굴인식 화면으로
-        router.push(`/connect`);
+        router.push(`/main`);
       }}
     >
       <Title>{title}</Title>
