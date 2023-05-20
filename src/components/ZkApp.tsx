@@ -30,4 +30,5 @@ const Wrap = styled.div`
 const AppTitle = styled.text`
   font-size: 27px;
   color: ${colors.white};
+  white-space: pre-wrap;
 `;
