@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineFileDone } from "react-icons/ai";
-import { MdVerifiedUser } from "react-icons/Md";
+import { MdVerifiedUser } from "react-icons/md";
 
 const Success = () => {
   const route = useRouter();
