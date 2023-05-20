@@ -11,12 +11,8 @@ import EtherIcon from "../../public/svgs/Ether.svg";
 import MaticIcon from "../../public/svgs/Matic.svg";
 import UpArrow from "../../public/svgs/UpArrow.svg";
 import DownArrow from "../../public/svgs/DownArrow.svg";
-<<<<<<< HEAD:src/pages/send.tsx
-import { useRouter } from "next/navigation";
 import Script from "next/script";
-=======
 import { useRouter } from "next/router";
->>>>>>> main:src/pages/swap.tsx
 
 const Swap = () => {
   const [value, setValue] = useState(0);
@@ -102,10 +98,6 @@ const Swap = () => {
       </GasFeeContainer>
       <SubmitBtn
         onClick={() => {
-<<<<<<< HEAD:src/pages/send.tsx
-          router.push("/status");
-          setIsClicked(!isClicked);
-=======
           router.push("/confirm", {
             pathname: "/confirm",
             query: {
@@ -113,7 +105,7 @@ const Swap = () => {
               eth,
             },
           });
->>>>>>> main:src/pages/swap.tsx
+          setIsClicked(!isClicked);
         }}
 
       >
